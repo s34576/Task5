@@ -11,7 +11,8 @@ public class Klient {
         this.email = email;
     }
     public Klient(String imie, String nazwisko) {
-        this(imie, nazwisko, "123@gmail.com");
+        this.imie = imie;
+        this.nazwisko = nazwisko;
     }
     public String getImie() {
         return imie;

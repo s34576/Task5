@@ -1,27 +1,25 @@
 public class Wydarzenie {
-    String nazwa;
-    String data;
-    String miejsce;
-    int maxLiczbaMiejsc =100;
-    int dostepneMiejsca=0;
-    double cena;
+    private String nazwa;
+    private String data;
+    private String miejsce;
+    private int maxLiczbaMiejsc =100;
+    private int dostepneMiejsca=0;
+    private double cena;
+    public Wydarzenie(String nazwa, double cena) {
+        this.nazwa = nazwa;
+        this.setCena(cena);
+    }
+    public Wydarzenie(String nazwa, double cena, String data) {
+        this.nazwa = nazwa;
+        this.setCena(cena);
+        this.data = data;
+    }
     public Wydarzenie(String nazwa, double cena,String data, String miejsce) {
         this.nazwa = nazwa;
-        this.cena = cena;
+        this.setCena(cena);
         this.data = data;
         this.miejsce = miejsce;
     }
-    public Wydarzenie(String nazwa, double cena, String data) {
-        this(nazwa, cena, data, "Radom");
-    }
-    public Wydarzenie(String nazwa, double cena) {
-        this(nazwa, cena, "12-04-2025", "Warszawa");
-    }
-    public Wydarzenie(String nazwa) {
-        this(nazwa, 20, "13-05-2025", "Wroclaw");
-    }
-
-
     public String getNazwa() {
         return nazwa;
     }
@@ -82,10 +80,7 @@ public class Wydarzenie {
        }
         this.cena = cena;
     }
-    public String ToString()
-    {
-        return this.nazwa+" "+this.data+" "+this.miejsce;
-    }
+
     public boolean zarezerwujMiejsce()
     {
         if(dostepneMiejsca<=0)
@@ -93,7 +88,11 @@ public class Wydarzenie {
             System.out.println("Podane miejsce nie istnieje/ Podane miejsce jest niedostepne");
             return false;
         }
-        this. dostepneMiejsca--;
+        dostepneMiejsca--;
         return true;
+    }
+    public String ToString()
+    {
+        return this.nazwa+" "+this.data+" "+this.miejsce;
     }
 }
